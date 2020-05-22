@@ -1,0 +1,77 @@
+<section>
+  <h1>
+    Create User
+  </h1>
+
+  <form [formGroup]="userForm" (ngSubmit)="createUser()" class="form">
+    <mat-form-field class="form-element">
+      <input matInput placeholder="First Name" formControlName="firstName" />
+      <mat-error *ngIf="!f.firstName.valid && f.firstName.touched">
+        {{ errorAlert }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-element">
+      <input matInput placeholder="Last Name" formControlName="lastName" />
+      <mat-error *ngIf="!f.lastName.valid && f.lastName.touched">
+        {{ errorAlert }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-element">
+      <input matInput placeholder="Email" formControlName="email" />
+      <mat-error *ngIf="!f.email.valid && f.email.touched">
+        {{ getErrorEmail() }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-element">
+      <input
+        type="number"
+        min="0"
+        matInput
+        placeholder="Age"
+        formControlName="age"
+      />
+      <mat-error *ngIf="!f.age.valid && f.age.touched">
+        {{ errorAlert }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-radio-group
+      aria-labelledby="select gender"
+      formControlName="gender"
+      class="form-element"
+      [class.mat-radio-error]="submitted && !f.gender.valid"
+    >
+      <mat-radio-button *ngFor="let gender of genders" [value]="gender">
+        {{ gender }}
+      </mat-radio-button>
+    </mat-radio-group>
+
+    <mat-form-field class="form-element">
+      <mat-label>State</mat-label>
+      <mat-select formControlName="state">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let state of states" [value]="state">
+          {{ state }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="!f.state.valid && f.state.touched">
+        {{ errorAlert }}
+      </mat-error>
+    </mat-form-field>
+
+    <div style="text-align: center;">
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary"
+        [class.spinner]="loading"
+        [disabled]="loading"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</section>

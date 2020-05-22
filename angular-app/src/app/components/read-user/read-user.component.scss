@@ -1,0 +1,17 @@
+mat-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button {
+  padding-bottom: 10px;
+}
+.table-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5%;
+}
+table {
+  width: 95%;
+}

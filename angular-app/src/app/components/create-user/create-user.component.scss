@@ -1,0 +1,53 @@
+section {
+  padding: 10px;
+}
+h1 {
+  text-align: center;
+  margin: 0;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form-element {
+  padding: 10px;
+  width: 30%;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+.mat-radio-button {
+  padding-right: 10px;
+}
+.mat-radio-error {
+  color: #f44336;
+}
+
+// spinner
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  border-top-color: #000000;
+  animation: spinner 0.8s linear infinite;
+}
